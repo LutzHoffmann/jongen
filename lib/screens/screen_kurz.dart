@@ -3,7 +3,6 @@ import 'package:jongen/logic/get_arguments_provoider.dart';
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 
-import '../logic/material_choise_provider.dart';
 import '../widgets/button_bar.dart';
 import '../widgets/index_weehl_n.dart';
 import '../widgets/index_wheel.dart';
@@ -91,20 +90,24 @@ class _ScreenKurzState extends State<ScreenKurz> implements ChangeNotifier {
 
   @override
   void addListener(void Function() listener) {
+    // ignore: todo
     // TODO: implement addListener
   }
 
   @override
+  // ignore: todo
   // TODO: implement hasListeners
   bool get hasListeners => throw UnimplementedError();
 
   @override
   void notifyListeners() {
+    // ignore: todo
     // TODO: implement notifyListeners
   }
 
   @override
   void removeListener(void Function() listener) {
+    // ignore: todo
     // TODO: implement removeListener
   }
 }

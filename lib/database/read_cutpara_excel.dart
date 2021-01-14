@@ -96,7 +96,7 @@ class ReadCutparaExcel {
       DatabaseHelper.columnF: grow[13].toStringAsFixed(3),
     };
 
-    final id = await dbHelper.insert(table, row);
+    await dbHelper.insert(table, row);
 
     //print('updated $rowsAffected row(s)');
   }

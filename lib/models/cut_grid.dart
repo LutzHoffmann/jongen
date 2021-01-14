@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:jongen/widgets/cut_grid_tile.dart';
 
 import '../models/grid_provider.dart';
 

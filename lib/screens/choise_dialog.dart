@@ -18,7 +18,7 @@ class _ChoiseDialogState extends State<ChoiseDialog> {
         backgroundColor: Color.fromRGBO(255, 255, 255, 0.8),
         scrollable: true,
         content: Stack(
-          overflow: Overflow.visible,
+          clipBehavior: Clip.hardEdge,
           children: <Widget>[
             Positioned(
               right: 0,

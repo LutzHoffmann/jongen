@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:pdf/widgets.dart' as pw;
 import 'package:flutter/material.dart';
 import 'dart:typed_data';

@@ -1,5 +1,5 @@
 import 'dart:async';
-import '../widgets/cut_grid_tile.dart';
+
 import './db_helper.dart';
 
 class QueryCutData {
