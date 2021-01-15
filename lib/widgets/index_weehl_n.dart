@@ -52,48 +52,74 @@ class _IndexWeehlNState extends State<IndexWeehlN> implements ChangeNotifier {
   final List<Widget> degrees = [
     ListTile(
       leading: Icon(Icons.rotate_90_degrees_ccw_outlined),
-      title: Text('0 Grad'),
+      title: Text(
+        '0 Grad',
+        textAlign: TextAlign.center,
+      ),
     ),
     ListTile(
       leading: Icon(Icons.rotate_90_degrees_ccw_outlined),
-      title: Text('0,5 Grad'),
+      title: Text(
+        '0,5 Grad',
+        textAlign: TextAlign.center,
+      ),
     ),
     ListTile(
       leading: Icon(Icons.rotate_90_degrees_ccw_outlined),
-      title: Text('1 Grad'),
+      title: Text(
+        '1 Grad',
+        textAlign: TextAlign.center,
+      ),
     ),
     ListTile(
       leading: Icon(Icons.rotate_90_degrees_ccw_outlined),
-      title: Text('1,5 Grad'),
+      title: Text(
+        '1,5 Grad',
+        textAlign: TextAlign.center,
+      ),
     ),
     ListTile(
       leading: Icon(Icons.rotate_90_degrees_ccw_outlined),
-      title: Text('2 Grad'),
+      title: Text(
+        '2 Grad',
+        textAlign: TextAlign.center,
+      ),
     ),
     ListTile(
       leading: Icon(Icons.rotate_90_degrees_ccw_outlined),
-      title: Text('2,5 Grad'),
+      title: Text(
+        '2,5 Grad',
+        textAlign: TextAlign.center,
+      ),
     ),
     ListTile(
       leading: Icon(Icons.rotate_90_degrees_ccw_outlined),
-      title: Text('3 Grad'),
+      title: Text(
+        '3 Grad',
+        textAlign: TextAlign.center,
+      ),
     )
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: RotationTransition(
-        turns: AlwaysStoppedAnimation(0 / 360),
-        child: ListWheelScrollView(
-          controller: FixedExtentScrollController(),
-          onSelectedItemChanged: (value) => positionChanged(value),
-          itemExtent: 40,
-          magnification: 1.0,
-          overAndUnderCenterOpacity: 0.1,
-          useMagnifier: true,
-          physics: FixedExtentScrollPhysics(),
-          children: degrees,
+    return Container(
+      width: 50,
+      child: Center(
+        child: RotationTransition(
+          turns: AlwaysStoppedAnimation(0 / 360),
+          child: ListWheelScrollView(
+            controller: FixedExtentScrollController(),
+            onSelectedItemChanged: (value) => positionChanged(value),
+            itemExtent: 40,
+            magnification: 1.0,
+            perspective: 0.00001,
+            squeeze: 1.5,
+            overAndUnderCenterOpacity: 0.1,
+            useMagnifier: true,
+            physics: FixedExtentScrollPhysics(),
+            children: degrees,
+          ),
         ),
       ),
     );

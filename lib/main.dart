@@ -36,12 +36,6 @@ void main() {
         theme: ThemeData(
           primaryColor: Colors.black,
           accentColor: Colors.white,
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-                primary: Colors.transparent,
-                padding: EdgeInsets.all(25),
-                elevation: 10),
-          ),
         ),
         initialRoute: '/',
         getPages: [

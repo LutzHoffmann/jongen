@@ -26,7 +26,7 @@ class _FlexImageState extends State<FlexImage> {
                 height: 200,
                 width: 300,
                 child: Image.asset(
-                  'assets/images/leg.jpg',
+                  'assets/images/leg.png',
                 ),
               ),
             ),

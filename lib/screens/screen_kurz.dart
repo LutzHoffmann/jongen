@@ -44,7 +44,7 @@ class _ScreenKurzState extends State<ScreenKurz> implements ChangeNotifier {
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(
                   height: 80,
@@ -55,30 +55,17 @@ class _ScreenKurzState extends State<ScreenKurz> implements ChangeNotifier {
                   key: Key('SizeBoxImage'),
                   height: 250,
                   width: double.infinity,
-                  child: Card(
-                    margin: EdgeInsets.symmetric(horizontal: 30),
-                    elevation: 0,
-                    color: Colors.white,
-                    child: FlexImage(),
-                  ),
+                  child: FlexImage(),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 50,
-                      width: 300,
-                      child: ButtBar(),
-                    ),
-                    SizedBox(
-                      height: 250,
-                      width: 300,
-                      child: Card(
-                        elevation: 15,
-                        child: IndexWheel(),
-                      ),
-                    ),
-                  ],
+                SizedBox(
+                  height: 50,
+                  width: 300,
+                  child: ButtBar(),
+                ),
+                SizedBox(
+                  height: 250,
+                  width: 300,
+                  child: IndexWheel(),
                 ),
               ],
             ),

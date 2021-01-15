@@ -88,7 +88,7 @@ class _IndexWheelState extends State<IndexWheel> implements ChangeNotifier {
                 onSelectedItemChanged: (value) =>
                     positionChanged(value, grad, geo),
                 itemExtent: 35,
-                magnification: 1.0,
+                magnification: 1.5,
                 overAndUnderCenterOpacity: 0.5,
                 useMagnifier: true,
                 physics: FixedExtentScrollPhysics(),
@@ -100,7 +100,7 @@ class _IndexWheelState extends State<IndexWheel> implements ChangeNotifier {
                       e.bez,
                       style: TextStyle(
                         fontSize: 14,
-                        color: Color(0xff0147fa),
+                        color: Colors.grey,
                       ),
                     ),
                   );

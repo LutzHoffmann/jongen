@@ -46,6 +46,7 @@ class _ChoiseButtonsState extends State<ChoiseButtons> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.text);
     var _borderRadiusStyle;
     if (widget.text == 'rough') {
       _borderRadiusStyle =
@@ -55,9 +56,13 @@ class _ChoiseButtonsState extends State<ChoiseButtons> {
     }
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          elevation: 10,
+          primary: Colors.white,
           shape: BeveledRectangleBorder(borderRadius: _borderRadiusStyle)),
-      child: Text(widget.text),
+      child: Text(
+        widget.text,
+        textAlign: TextAlign.center,
+        style: TextStyle(color: Colors.grey),
+      ),
       onPressed: () => {
         buttonPressed(widget.text),
         showDialog(
