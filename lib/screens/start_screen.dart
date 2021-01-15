@@ -9,23 +9,17 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        elevation: 0,
+        iconTheme: IconThemeData(color: Theme.of(context).accentColor),
         backgroundColor: Theme.of(context).primaryColor,
         toolbarOpacity: 1,
         title: Text(
           'Jongen',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Theme.of(context).accentColor),
         ),
       ),
       drawer: MainDrawer(),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              colors: [Colors.black, Colors.red, Colors.yellow],
-              stops: [0.35, 0.7, 0.8],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight),
-        ),
         child: Stack(
           children: [
             Center(
@@ -42,7 +36,7 @@ class StartScreen extends StatelessWidget {
                             'Jongen',
                             style: TextStyle(
                                 fontSize: 80,
-                                color: Colors.white,
+                                color: Theme.of(context).accentColor,
                                 fontFamily: 'MeriendaOne'),
                           )
                         ],
@@ -54,7 +48,7 @@ class StartScreen extends StatelessWidget {
                             'Customer App',
                             style: TextStyle(
                                 fontSize: 40,
-                                color: Colors.white,
+                                color: Theme.of(context).accentColor,
                                 fontFamily: 'MeriendaOne'),
                           )
                         ],
@@ -70,58 +64,44 @@ class StartScreen extends StatelessWidget {
                           Stack(
                             children: [
                               Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                      colors: [
-                                        Colors.black,
-                                        Colors.red,
-                                        Colors.yellow
-                                      ],
-                                      stops: [
-                                        0.35,
-                                        0.7,
-                                        0.8
-                                      ],
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight),
-                                ),
                                 height: 180,
                                 width: 200,
                                 child: Card(
                                   color: Colors.transparent,
                                   child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.white,
+                                    ),
                                     onPressed: () => Get.toNamed('/screenkurz',
                                         arguments: ['GEO417', 'HX63']),
-                                    child: Text('417HX63'),
+                                    child: Text(
+                                      '417HX63',
+                                      style: TextStyle(
+                                          color: Theme.of(context).accentColor,
+                                          fontSize: 25),
+                                    ),
                                   ),
                                 ),
                               ),
                             ],
                           ),
                           Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  colors: [
-                                    Colors.black,
-                                    Colors.red,
-                                    Colors.yellow
-                                  ],
-                                  stops: [
-                                    0.35,
-                                    0.7,
-                                    0.8
-                                  ],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight),
-                            ),
                             height: 180,
                             width: 200,
                             child: Card(
                               color: Colors.transparent,
                               child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.white,
+                                ),
                                 onPressed: () => Get.toNamed('/screenkurz',
                                     arguments: ['GEO417', 'HX70']),
-                                child: Text('417HX70'),
+                                child: Text(
+                                  '417HX70',
+                                  style: TextStyle(
+                                      color: Theme.of(context).accentColor,
+                                      fontSize: 25),
+                                ),
                               ),
                             ),
                           ),
@@ -131,55 +111,41 @@ class StartScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  colors: [
-                                    Colors.black,
-                                    Colors.red,
-                                    Colors.yellow
-                                  ],
-                                  stops: [
-                                    0.35,
-                                    0.7,
-                                    0.8
-                                  ],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight),
-                            ),
                             height: 180,
                             width: 200,
                             child: Card(
                               color: Colors.transparent,
                               child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.white,
+                                  ),
                                   onPressed: () => Get.toNamed('/screenkurz',
                                       arguments: ['GEO418', 'HX63']),
-                                  child: Text('418HX63')),
+                                  child: Text(
+                                    '418HX63',
+                                    style: TextStyle(
+                                        color: Theme.of(context).accentColor,
+                                        fontSize: 25),
+                                  )),
                             ),
                           ),
                           Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  colors: [
-                                    Colors.black,
-                                    Colors.red,
-                                    Colors.yellow
-                                  ],
-                                  stops: [
-                                    0.35,
-                                    0.7,
-                                    0.8
-                                  ],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight),
-                            ),
                             height: 180,
                             width: 200,
                             child: Card(
                               color: Colors.transparent,
                               child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.white,
+                                ),
                                 onPressed: () => Get.toNamed('/screenkurz',
                                     arguments: ['GEO418', 'HX70']),
-                                child: Text('418HX70'),
+                                child: Text(
+                                  '418HX70',
+                                  style: TextStyle(
+                                      color: Theme.of(context).accentColor,
+                                      fontSize: 25),
+                                ),
                               ),
                             ),
                           ),

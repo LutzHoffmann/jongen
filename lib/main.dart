@@ -34,8 +34,8 @@ void main() {
       ],
       child: GetMaterialApp(
         theme: ThemeData(
-          primaryColor: Colors.black,
-          accentColor: Colors.white,
+          primaryColor: Colors.white,
+          accentColor: Colors.grey,
         ),
         initialRoute: '/',
         getPages: [

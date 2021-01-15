@@ -50,12 +50,12 @@ class _IndexWheelState extends State<IndexWheel> implements ChangeNotifier {
     if (geo == 'GEO417')
       return Icon(
         Icons.arrow_drop_down,
-        color: Colors.blue,
+        color: Colors.grey,
       );
     else
       return Icon(
         Icons.arrow_drop_up,
-        color: Colors.red,
+        color: Colors.grey,
       );
   }
 
