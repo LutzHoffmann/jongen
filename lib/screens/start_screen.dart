@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:jongen/widgets/my_custom_clipper.dart';
 import '../widgets/main_drawer.dart';
 
 class StartScreen extends StatelessWidget {
@@ -22,6 +23,20 @@ class StartScreen extends StatelessWidget {
       body: Container(
         child: Stack(
           children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipPath(
+                  clipper: MyCustomClipper(),
+                  child: Container(
+                    width: double.infinity,
+                    height: 100,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
