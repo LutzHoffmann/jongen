@@ -4,9 +4,14 @@ class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Container(
-        color: Colors.white,
-        child: Text('Welcome'),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            color: Colors.white,
+            child: Text('Welcome'),
+          ),
+        ],
       ),
     );
   }

@@ -10,9 +10,10 @@ class ButtBar extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => MaterialChoiseProvider(),
       child: Container(
+        alignment: Alignment.center,
         child: ButtonBar(
           buttonPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-          alignment: MainAxisAlignment.end,
+          alignment: MainAxisAlignment.center,
           children: [
             ChoiseButtons('rough'),
             ChoiseButtons('finish'),

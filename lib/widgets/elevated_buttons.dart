@@ -67,6 +67,7 @@ class _ChoiseButtonsState extends State<ChoiseButtons> {
         buttonPressed(widget.text),
         showDialog(
           context: context,
+          barrierDismissible: false,
           builder: (BuildContext context) {
             return ChoiseDialog();
           },

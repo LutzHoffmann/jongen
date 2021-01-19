@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 
 import '../widgets/button_bar.dart';
+import '../widgets/my_custom_clipper.dart';
 import '../widgets/index_weehl_n.dart';
 import '../widgets/index_wheel.dart';
 import '../widgets/flex_image.dart';
@@ -29,6 +30,9 @@ class _ScreenKurzState extends State<ScreenKurz> implements ChangeNotifier {
     notifyListeners();
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Theme.of(context).accentColor,
+        iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -37,39 +41,50 @@ class _ScreenKurzState extends State<ScreenKurz> implements ChangeNotifier {
         ),
         title: Text(
           'Jongen',
+          style: TextStyle(color: Theme.of(context).primaryColor),
         ),
       ),
       body: SingleChildScrollView(
-        child: SafeArea(
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SizedBox(
-                  height: 80,
-                  width: 300,
-                  child: IndexWeehlN(),
-                ),
-                SizedBox(
-                  key: Key('SizeBoxImage'),
-                  height: 250,
-                  width: double.infinity,
-                  child: FlexImage(),
-                ),
-                SizedBox(
-                  height: 50,
-                  width: 300,
-                  child: ButtBar(),
-                ),
-                SizedBox(
-                  height: 250,
-                  width: 300,
-                  child: IndexWheel(),
-                ),
-              ],
+        child: Stack(
+          children: [
+            ClipPath(
+              clipper: MyCustomClipper(),
+              child: Container(
+                width: double.infinity,
+                height: 100,
+                color: Colors.grey,
+              ),
             ),
-          ),
+            Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: 80,
+                    width: 300,
+                    child: IndexWeehlN(),
+                  ),
+                  SizedBox(
+                    key: Key('SizeBoxImage'),
+                    height: 250,
+                    width: double.infinity,
+                    child: FlexImage(),
+                  ),
+                  SizedBox(
+                    height: 50,
+                    width: 300,
+                    child: ButtBar(),
+                  ),
+                  SizedBox(
+                    height: 250,
+                    width: 300,
+                    child: IndexWheel(),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

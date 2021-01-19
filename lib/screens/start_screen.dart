@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:jongen/widgets/mainscreen_buttons.dart';
+
 import 'package:jongen/widgets/my_custom_clipper.dart';
 import '../widgets/main_drawer.dart';
 
@@ -11,29 +13,33 @@ class StartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        iconTheme: IconThemeData(color: Theme.of(context).accentColor),
-        backgroundColor: Theme.of(context).primaryColor,
+        iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
+        backgroundColor: Theme.of(context).accentColor,
         toolbarOpacity: 1,
         title: Text(
           'Jongen',
-          style: TextStyle(color: Theme.of(context).accentColor),
+          style: TextStyle(color: Theme.of(context).primaryColor),
         ),
       ),
       drawer: MainDrawer(),
       body: Container(
-        child: Stack(
+        child: Column(
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            Stack(
               children: [
-                ClipPath(
-                  clipper: MyCustomClipper(),
-                  child: Container(
-                    width: double.infinity,
-                    height: 100,
-                    color: Colors.grey,
-                  ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ClipPath(
+                      clipper: MyCustomClipper(),
+                      child: Container(
+                        width: double.infinity,
+                        height: 100,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -70,100 +76,26 @@ class StartScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  Divider(
+                    height: 1,
+                    color: Theme.of(context).accentColor,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Stack(
-                            children: [
-                              Container(
-                                height: 180,
-                                width: 200,
-                                child: Card(
-                                  color: Colors.transparent,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      primary: Colors.white,
-                                    ),
-                                    onPressed: () => Get.toNamed('/screenkurz',
-                                        arguments: ['GEO417', 'HX63']),
-                                    child: Text(
-                                      '417HX63',
-                                      style: TextStyle(
-                                          color: Theme.of(context).accentColor,
-                                          fontSize: 25),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            height: 180,
-                            width: 200,
-                            child: Card(
-                              color: Colors.transparent,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.white,
-                                ),
-                                onPressed: () => Get.toNamed('/screenkurz',
-                                    arguments: ['GEO417', 'HX70']),
-                                child: Text(
-                                  '417HX70',
-                                  style: TextStyle(
-                                      color: Theme.of(context).accentColor,
-                                      fontSize: 25),
-                                ),
-                              ),
-                            ),
-                          ),
+                          MainScreenButtons('417HX63'),
+                          MainScreenButtons('418HX63'),
                         ],
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Container(
-                            height: 180,
-                            width: 200,
-                            child: Card(
-                              color: Colors.transparent,
-                              child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    primary: Colors.white,
-                                  ),
-                                  onPressed: () => Get.toNamed('/screenkurz',
-                                      arguments: ['GEO418', 'HX63']),
-                                  child: Text(
-                                    '418HX63',
-                                    style: TextStyle(
-                                        color: Theme.of(context).accentColor,
-                                        fontSize: 25),
-                                  )),
-                            ),
-                          ),
-                          Container(
-                            height: 180,
-                            width: 200,
-                            child: Card(
-                              color: Colors.transparent,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.white,
-                                ),
-                                onPressed: () => Get.toNamed('/screenkurz',
-                                    arguments: ['GEO418', 'HX70']),
-                                child: Text(
-                                  '418HX70',
-                                  style: TextStyle(
-                                      color: Theme.of(context).accentColor,
-                                      fontSize: 25),
-                                ),
-                              ),
-                            ),
-                          ),
+                          MainScreenButtons('417HX70'),
+                          MainScreenButtons('418HX70')
                         ],
                       ),
                     ],

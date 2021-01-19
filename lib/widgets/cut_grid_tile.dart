@@ -8,29 +8,29 @@ class CutGridTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridTile(
-      child: Stack(
+      child: Column(
         children: [
-          Column(
-            children: [
-              Card(
-                color: Colors.blue,
-                elevation: 15,
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
+          Card(
+            color: Theme.of(context).primaryColor,
+            elevation: 0,
+            child: Stack(
+              children: [
+                Column(
+                  children: [
+                    Center(
+                      child: Text(
                         bez,
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: Colors.grey.withOpacity(0.2), fontSize: 40),
                       ),
-                      Text(value),
-                    ],
-                  ),
+                    ),
+                    Center(
+                      child: Text(value),
+                    ),
+                  ],
                 ),
-              )
-            ],
+              ],
+            ),
           )
         ],
       ),

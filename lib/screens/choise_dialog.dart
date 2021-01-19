@@ -13,29 +13,39 @@ class _ChoiseDialogState extends State<ChoiseDialog> {
       Provider.of<GridProvider>(context, listen: false).renewList();
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: AlertDialog(
-        backgroundColor: Color.fromRGBO(255, 255, 255, 0.8),
-        scrollable: true,
-        content: Stack(
-          clipBehavior: Clip.hardEdge,
+    return AlertDialog(
+      content: SingleChildScrollView(
+        child: ListBody(
           children: <Widget>[
-            Positioned(
-              right: 0,
-              top: 0,
-              child: InkResponse(
-                onTap: () {
-                  Navigator.of(context).pop();
-                  renewList();
-                },
-                child: CircleAvatar(
-                  child: Icon(Icons.close),
-                  backgroundColor: Colors.red,
-                ),
-              ),
+            SizedBox(
+              height: 50,
+              width: double.infinity,
             ),
-            Center(
-              child: CutGrid(),
+            Stack(
+              clipBehavior: Clip.hardEdge,
+              children: <Widget>[
+                Center(
+                  child: Column(
+                    children: [
+                      CutGrid(),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  top: -0,
+                  child: InkResponse(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                      renewList();
+                    },
+                    child: CircleAvatar(
+                      child: Icon(Icons.close),
+                      backgroundColor: Colors.red,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

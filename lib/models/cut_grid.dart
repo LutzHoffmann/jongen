@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
 import '../models/grid_provider.dart';
 
@@ -14,9 +15,9 @@ class _CutGridState extends State<CutGrid> {
     final tiles = Provider.of<GridProvider>(context).returnTiles;
     print(tiles.length);
     return Container(
-      padding: EdgeInsets.all(20),
-      height: 500,
-      width: 300,
+      padding: EdgeInsets.all(15),
+      height: Get.height,
+      width: Get.width,
       child: GridView.builder(
           itemCount: tiles.length,
           gridDelegate:
