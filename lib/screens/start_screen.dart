@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/route_manager.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:jongen/widgets/mainscreen_buttons.dart';
 
 import 'package:jongen/widgets/my_custom_clipper.dart';
@@ -10,6 +12,19 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Platform messages are asynchronous, so we initialize in an async method.
+    Future<void> scanBarcodeNormal() async {
+      String barcodeScanRes;
+      // Platform messages may fail, so we use a try/catch PlatformException.
+      try {
+        barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+            "#ff6666", "Cancel", true, ScanMode.BARCODE);
+        print(barcodeScanRes);
+      } on PlatformException {
+        barcodeScanRes = 'Failed to get platform version.';
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -20,6 +35,12 @@ class StartScreen extends StatelessWidget {
           'Jongen',
           style: TextStyle(color: Theme.of(context).primaryColor),
         ),
+        //actions: [
+        //GestureDetector(
+        //onTap: () {
+        // scanBarcodeNormal();
+        // },
+        //child: Icon(Icons.qr_code_scanner_outlined),
       ),
       drawer: MainDrawer(),
       body: Container(

@@ -46,6 +46,13 @@ class MainDrawer extends StatelessWidget {
               ),
               ListTile(
                 title: InkResponse(
+                  onTap: () => {Get.toNamed('resharp_pdf')},
+                  child: Text('Nachschleifauftrag',
+                      style: TextStyle(fontSize: 20)),
+                ),
+              ),
+              ListTile(
+                title: InkResponse(
                   onTap: () => {Get.toNamed('aboutscreen')},
                   child: Text('About', style: TextStyle(fontSize: 20)),
                 ),

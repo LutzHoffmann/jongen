@@ -31,6 +31,7 @@ dependencies:
   pdf: ^2.0.0
   printing: ^4.0.0
   url_launcher: ^5.7.10
+  flutter_barcode_scanner: ^1.0.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -76,6 +77,13 @@ flutter:
      - family: MeriendaOne
        fonts:
         - asset: assets/fonts/MeriendaOne-Regular.ttf
+     - family: OpenSans
+       fonts:
+        - asset: assets/fonts/Open_Sans/OpenSans-Regular.ttf
+        - asset: assets/fonts/Open_Sans/OpenSans-Bold.ttf
+        - asset: assets/fonts/Open_Sans/OpenSans-Italic.ttf
+        - asset: assets/fonts/Open_Sans/OpenSans-BoldItalic.ttf
+                
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

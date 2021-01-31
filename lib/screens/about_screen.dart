@@ -30,7 +30,7 @@ class AboutScreen extends StatelessWidget {
         ],
       ),
       drawer: MainDrawer(),
-      body: Container(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Stack(

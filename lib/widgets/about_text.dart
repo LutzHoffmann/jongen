@@ -24,13 +24,15 @@ class AboutText extends StatelessWidget {
         TextStyle(color: Theme.of(context).accentColor, fontSize: 20);
 
     return SafeArea(
-      child: Column(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            height: Get.height / 8,
-          ),
-          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              width: double.infinity,
+              height: Get.height / 8,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -86,8 +88,8 @@ class AboutText extends StatelessWidget {
                 ),
               ],
             ),
-          ]),
-        ],
+          ],
+        ),
       ),
     );
   }
