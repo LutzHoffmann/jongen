@@ -35,12 +35,14 @@ class StartScreen extends StatelessWidget {
           'Jongen',
           style: TextStyle(color: Theme.of(context).primaryColor),
         ),
-        //actions: [
-        //GestureDetector(
-        //onTap: () {
-        // scanBarcodeNormal();
-        // },
-        //child: Icon(Icons.qr_code_scanner_outlined),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              scanBarcodeNormal();
+            },
+            child: Icon(Icons.qr_code_scanner_outlined),
+          ),
+        ],
       ),
       drawer: MainDrawer(),
       body: Container(
