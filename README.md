@@ -1,16 +1,26 @@
 # jongen
 
-A new Flutter project.
+## Kurzbeschreibung
 
-## Getting Started
+Oeffentliches Flutter-Projekt als App-Grundlage fuer die mobile Aufbereitung technischer Geometrie- und Schnittdaten.
 
-This project is a starting point for a Flutter application.
+## Worum es fachlich geht
 
-A few resources to get you started if this is your first Flutter project:
+Das Repository kombiniert eine mobile Flutter-Oberflaeche mit eingelesenen Excel-Daten, lokaler Datenhaltung und PDF-Ausgabe. Aus dem Projektaufbau wird sichtbar, dass technische Parameter, Materialauswahl und vorbereitete Arbeitswerte innerhalb einer App verarbeitet werden.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Was ich dabei praktisch bearbeite
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Aufbau einer Flutter-Anwendung mit mehreren Screens und Zustandsverwaltung
+- Einlesen und Verarbeiten technischer Excel-Daten
+- lokale Datenhaltung, PDF-Erzeugung und Barcode-Scanning
+- Strukturierung von Logik, Datenzugriff und Oberflaeche in einer mobilen Anwendung
+
+## Technik/Stack
+
+- Flutter / Dart
+- Provider, GetX
+- Excel, sqflite, pdf, printing, url_launcher, flutter_barcode_scanner
+
+## Status
+
+Fruehe App-Grundlage und technischer Prototyp mit vorhandener Projektstruktur, aber noch ohne ausformulierte Endprodukt-Dokumentation.
