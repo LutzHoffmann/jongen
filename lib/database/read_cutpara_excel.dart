@@ -6,76 +6,70 @@ import 'db_helper.dart';
 class ReadCutparaExcel {
   var dbHelper = DatabaseHelper.instance;
   Future<void> loadExcel() async {
-    try {
-      ByteData data417HX63 =
-          await rootBundle.load("assets/417HX63SCHNITT.xlsx");
-      ByteData data417HX70 =
-          await rootBundle.load("assets/417HX70SCHNITT.xlsx");
-      ByteData data418HX63 =
-          await rootBundle.load("assets/418HX63SCHNITT.xlsx");
-      ByteData data418HX70 =
-          await rootBundle.load("assets/418HX70SCHNITT.xlsx");
+    ByteData data417HX63 =
+        await rootBundle.load("assets/417HX63SCHNITT.xlsx");
+    ByteData data417HX70 =
+        await rootBundle.load("assets/417HX70SCHNITT.xlsx");
+    ByteData data418HX63 =
+        await rootBundle.load("assets/418HX63SCHNITT.xlsx");
+    ByteData data418HX70 =
+        await rootBundle.load("assets/418HX70SCHNITT.xlsx");
 
-      var bytes417HX63 = data417HX63.buffer
-          .asUint8List(data417HX63.offsetInBytes, data417HX63.lengthInBytes);
-      var excel417HX63 = Excel.decodeBytes(bytes417HX63);
+    var bytes417HX63 = data417HX63.buffer
+        .asUint8List(data417HX63.offsetInBytes, data417HX63.lengthInBytes);
+    var excel417HX63 = Excel.decodeBytes(bytes417HX63);
 
-      var bytes417HX70 = data417HX70.buffer
-          .asUint8List(data417HX70.offsetInBytes, data417HX70.lengthInBytes);
-      var excel417HX70 = Excel.decodeBytes(bytes417HX70);
+    var bytes417HX70 = data417HX70.buffer
+        .asUint8List(data417HX70.offsetInBytes, data417HX70.lengthInBytes);
+    var excel417HX70 = Excel.decodeBytes(bytes417HX70);
 
-      var bytes418HX63 = data418HX63.buffer
-          .asUint8List(data418HX63.offsetInBytes, data418HX63.lengthInBytes);
-      var excel418HX63 = Excel.decodeBytes(bytes418HX63);
+    var bytes418HX63 = data418HX63.buffer
+        .asUint8List(data418HX63.offsetInBytes, data418HX63.lengthInBytes);
+    var excel418HX63 = Excel.decodeBytes(bytes418HX63);
 
-      var bytes418HX70 = data418HX70.buffer
-          .asUint8List(data418HX70.offsetInBytes, data418HX70.lengthInBytes);
-      var excel418HX70 = Excel.decodeBytes(bytes418HX70);
+    var bytes418HX70 = data418HX70.buffer
+        .asUint8List(data418HX70.offsetInBytes, data418HX70.lengthInBytes);
+    var excel418HX70 = Excel.decodeBytes(bytes418HX70);
 
-      for (var table in excel417HX63.tables.keys) {
-        await dbHelper.onCreate(table, 1);
-        //print(table); //sheet Name
-        //  print(excel.tables[table].maxCols);
-        // print(excel.tables[table].maxRows);
-        for (var row in excel417HX63.tables[table].rows) {
-          await insert(table, row);
-          // query();
-        }
+    for (var table in excel417HX63.tables.keys) {
+      await dbHelper.onCreate(table, 1);
+      //print(table); //sheet Name
+      //  print(excel.tables[table].maxCols);
+      // print(excel.tables[table].maxRows);
+      for (var row in excel417HX63.tables[table].rows) {
+        await insert(table, row);
+        // query();
       }
-      for (var table in excel417HX70.tables.keys) {
-        await dbHelper.onCreate(table, 1);
-        //print(table); //sheet Name
-        //  print(excel.tables[table].maxCols);
-        // print(excel.tables[table].maxRows);
-        for (var row in excel417HX70.tables[table].rows) {
-          await insert(table, row);
-          // query();
-        }
+    }
+    for (var table in excel417HX70.tables.keys) {
+      await dbHelper.onCreate(table, 1);
+      //print(table); //sheet Name
+      //  print(excel.tables[table].maxCols);
+      // print(excel.tables[table].maxRows);
+      for (var row in excel417HX70.tables[table].rows) {
+        await insert(table, row);
+        // query();
       }
-      for (var table in excel418HX63.tables.keys) {
-        await dbHelper.onCreate(table, 1);
-        //print(table); //sheet Name
-        //  print(excel.tables[table].maxCols);
-        // print(excel.tables[table].maxRows);
-        for (var row in excel418HX63.tables[table].rows) {
-          await insert(table, row);
-          // query();
-        }
+    }
+    for (var table in excel418HX63.tables.keys) {
+      await dbHelper.onCreate(table, 1);
+      //print(table); //sheet Name
+      //  print(excel.tables[table].maxCols);
+      // print(excel.tables[table].maxRows);
+      for (var row in excel418HX63.tables[table].rows) {
+        await insert(table, row);
+        // query();
       }
-      for (var table in excel418HX70.tables.keys) {
-        await dbHelper.onCreate(table, 1);
-        // print(table); //sheet Name
-        //  print(excel.tables[table].maxCols);
-        // print(excel.tables[table].maxRows);
-        for (var row in excel418HX70.tables[table].rows) {
-          await insert(table, row);
-          // query();
-        }
+    }
+    for (var table in excel418HX70.tables.keys) {
+      await dbHelper.onCreate(table, 1);
+      // print(table); //sheet Name
+      //  print(excel.tables[table].maxCols);
+      // print(excel.tables[table].maxRows);
+      for (var row in excel418HX70.tables[table].rows) {
+        await insert(table, row);
+        // query();
       }
-    } catch (error, stackTrace) {
-      print('Cutpara Excel loading failed: $error');
-      print(stackTrace);
-      rethrow;
     }
   }
 

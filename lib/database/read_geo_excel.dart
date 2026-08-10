@@ -8,25 +8,19 @@ class ReadGeoExcel {
 
   get row => null;
   Future<void> loadExcel() async {
-    try {
-      ByteData data = await rootBundle.load("assets/41718Geom.xlsx");
-      var bytes =
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-      var excel = Excel.decodeBytes(bytes);
+    ByteData data = await rootBundle.load("assets/41718Geom.xlsx");
+    var bytes =
+        data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+    var excel = Excel.decodeBytes(bytes);
 
-      for (var table in excel.tables.keys) {
-        await dbHelper.onCreate(table, 1);
-        //print(table); //sheet Name
-        // print(excel.tables[table].maxCols);
-        // print(excel.tables[table].maxRows);
-        for (var row in excel.tables[table].rows) {
-          await insert(table, row);
-        }
+    for (var table in excel.tables.keys) {
+      await dbHelper.onCreate(table, 1);
+      //print(table); //sheet Name
+      // print(excel.tables[table].maxCols);
+      // print(excel.tables[table].maxRows);
+      for (var row in excel.tables[table].rows) {
+        await insert(table, row);
       }
-    } catch (error, stackTrace) {
-      print('Geo Excel loading failed: $error');
-      print(stackTrace);
-      rethrow;
     }
   }
 
