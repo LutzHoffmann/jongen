@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-import 'database/read_cutpara_excel.dart';
-import 'database/read_geo_excel.dart';
 import 'logic/get_arguments_provoider.dart';
 import 'logic/index_set_provider .dart';
 import 'logic/material_choise_provider.dart';
