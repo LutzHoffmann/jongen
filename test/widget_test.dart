@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:jongen/app.dart';
 import 'package:jongen/startup/load_initial_data.dart';
@@ -43,6 +45,31 @@ void main() {
     expect(calls, ['geo', 'cutpara']);
     expect(logs, hasLength(1));
     expect(logs.single, contains('geo'));
+  });
+
+  test('loadInitialData waits for geo before starting cutpara', () async {
+    final geoCompleter = Completer<void>();
+    final events = <String>[];
+
+    final loading = loadInitialData(
+      loadGeo: () async {
+        events.add('geo-start');
+        await geoCompleter.future;
+        events.add('geo-end');
+      },
+      loadCutpara: () async {
+        events.add('cutpara-start');
+      },
+      onError: (label, error, stackTrace) {},
+    );
+
+    await Future<void>.delayed(Duration.zero);
+    expect(events, ['geo-start']);
+
+    geoCompleter.complete();
+    await loading;
+
+    expect(events, ['geo-start', 'geo-end', 'cutpara-start']);
   });
 
   test('loadInitialData keeps going when both loaders fail', () async {
