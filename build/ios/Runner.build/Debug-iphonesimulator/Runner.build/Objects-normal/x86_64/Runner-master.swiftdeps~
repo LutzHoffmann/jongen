@@ -1,5 +1,0 @@
-version: "Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
-options: "b57e765a364f753d7c71d7dc37080c25"
-build_time: [1612243053, 11256000]
-inputs:
-  "/Users/admin/AndroidStudioProjects/jongen/ios/Runner/AppDelegate.swift": [1599037136, 0]
