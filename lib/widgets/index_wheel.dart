@@ -13,7 +13,7 @@ class IndexWheel extends StatefulWidget {
   _IndexWheelState createState() => _IndexWheelState();
 }
 
-class _IndexWheelState extends State<IndexWheel> implements ChangeNotifier {
+class _IndexWheelState extends State<IndexWheel> {
   final String geo = Get.arguments[0]; //Save 417/418
   final String hx = Get.arguments[1]; //Save HX63/HX70
   void setItemValues(valueText) =>
@@ -71,7 +71,6 @@ class _IndexWheelState extends State<IndexWheel> implements ChangeNotifier {
     changeN(resN);
     setItemValues(res);
     setIndex(value);
-    notifyListeners();
   }
 
   @override
@@ -111,28 +110,5 @@ class _IndexWheelState extends State<IndexWheel> implements ChangeNotifier {
               );
       },
     );
-  }
-
-  @override
-  void addListener(void Function() listener) {
-    // ignore: todo
-    // TODO: implement addListener
-  }
-
-  @override
-  // ignore: todo
-  // TODO: implement hasListeners
-  bool get hasListeners => throw UnimplementedError();
-
-  @override
-  void notifyListeners() {
-    // ignore: todo
-    // TODO: implement notifyListeners
-  }
-
-  @override
-  void removeListener(void Function() listener) {
-    // ignore: todo
-    // TODO: implement removeListener
   }
 }

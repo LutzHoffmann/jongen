@@ -5,7 +5,7 @@ import 'db_helper.dart';
 
 class ReadCutparaExcel {
   var dbHelper = DatabaseHelper.instance;
-  loadExcel() async {
+  Future<void> loadExcel() async {
     try {
       ByteData data417HX63 =
           await rootBundle.load("assets/417HX63SCHNITT.xlsx");
@@ -33,52 +33,53 @@ class ReadCutparaExcel {
       var excel418HX70 = Excel.decodeBytes(bytes418HX70);
 
       for (var table in excel417HX63.tables.keys) {
-        dbHelper.onCreate(table, 1);
+        await dbHelper.onCreate(table, 1);
         //print(table); //sheet Name
         //  print(excel.tables[table].maxCols);
         // print(excel.tables[table].maxRows);
         for (var row in excel417HX63.tables[table].rows) {
-          insert(table, row);
+          await insert(table, row);
           // query();
         }
       }
       for (var table in excel417HX70.tables.keys) {
-        dbHelper.onCreate(table, 1);
+        await dbHelper.onCreate(table, 1);
         //print(table); //sheet Name
         //  print(excel.tables[table].maxCols);
         // print(excel.tables[table].maxRows);
         for (var row in excel417HX70.tables[table].rows) {
-          insert(table, row);
+          await insert(table, row);
           // query();
         }
       }
       for (var table in excel418HX63.tables.keys) {
-        dbHelper.onCreate(table, 1);
+        await dbHelper.onCreate(table, 1);
         //print(table); //sheet Name
         //  print(excel.tables[table].maxCols);
         // print(excel.tables[table].maxRows);
         for (var row in excel418HX63.tables[table].rows) {
-          insert(table, row);
+          await insert(table, row);
           // query();
         }
       }
       for (var table in excel418HX70.tables.keys) {
-        dbHelper.onCreate(table, 1);
+        await dbHelper.onCreate(table, 1);
         // print(table); //sheet Name
         //  print(excel.tables[table].maxCols);
         // print(excel.tables[table].maxRows);
         for (var row in excel418HX70.tables[table].rows) {
-          insert(table, row);
+          await insert(table, row);
           // query();
         }
       }
-    } catch (e) {
-      print(e);
-      return null;
+    } catch (error, stackTrace) {
+      print('Cutpara Excel loading failed: $error');
+      print(stackTrace);
+      rethrow;
     }
   }
 
-  void insert(table, grow) async {
+  Future<void> insert(table, grow) async {
     Map<String, dynamic> row = {
       DatabaseHelper.columnId: grow[0],
       DatabaseHelper.columnMat: grow[1].toString(),

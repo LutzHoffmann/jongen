@@ -10,7 +10,7 @@ class IndexWeehlN extends StatefulWidget {
   _IndexWeehlNState createState() => _IndexWeehlNState();
 }
 
-class _IndexWeehlNState extends State<IndexWeehlN> implements ChangeNotifier {
+class _IndexWeehlNState extends State<IndexWeehlN> {
   final geo = Get.arguments[0];
 
   @override
@@ -46,7 +46,6 @@ class _IndexWeehlNState extends State<IndexWeehlN> implements ChangeNotifier {
 
     changeN(res);
     setIndexDeg(grad);
-    notifyListeners();
   }
 
   final List<Widget> degrees = [
@@ -123,28 +122,5 @@ class _IndexWeehlNState extends State<IndexWeehlN> implements ChangeNotifier {
         ),
       ),
     );
-  }
-
-  @override
-  void addListener(void Function() listener) {
-    // ignore: todo
-    // TODO: implement addListener
-  }
-
-  @override
-  // ignore: todo
-  // TODO: implement hasListeners
-  bool get hasListeners => throw UnimplementedError();
-
-  @override
-  void notifyListeners() {
-    // ignore: todo
-    // TODO: implement notifyListeners
-  }
-
-  @override
-  void removeListener(void Function() listener) {
-    // ignore: todo
-    // TODO: implement removeListener
   }
 }

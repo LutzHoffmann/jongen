@@ -11,7 +11,7 @@ class PopButton extends StatefulWidget {
   _PopButtonState createState() => _PopButtonState();
 }
 
-class _PopButtonState extends State<PopButton> implements ChangeNotifier {
+class _PopButtonState extends State<PopButton> {
   final String hx = Get.arguments[1];
   void setChoise(choiseText) =>
       Provider.of<MaterialChoiseProvider>(context, listen: false)
@@ -37,7 +37,6 @@ class _PopButtonState extends State<PopButton> implements ChangeNotifier {
     print(selection);
     setChoise(selection);
 
-    notifyListeners();
   }
 
   @override
@@ -118,28 +117,5 @@ class _PopButtonState extends State<PopButton> implements ChangeNotifier {
                     ),
                   ),
                 ]);
-  }
-
-  @override
-  void addListener(void Function() listener) {
-    // ignore: todo
-    // TODO: implement addListener
-  }
-
-  @override
-  // ignore: todo
-  // TODO: implement hasListeners
-  bool get hasListeners => throw UnimplementedError();
-
-  @override
-  void notifyListeners() {
-    // ignore: todo
-    // TODO: implement notifyListeners
-  }
-
-  @override
-  void removeListener(void Function() listener) {
-    // ignore: todo
-    // TODO: implement removeListener
   }
 }

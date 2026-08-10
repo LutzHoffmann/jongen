@@ -7,7 +7,7 @@ class ReadGeoExcel {
   final dbHelper = DatabaseHelper.instance;
 
   get row => null;
-  loadExcel() async {
+  Future<void> loadExcel() async {
     try {
       ByteData data = await rootBundle.load("assets/41718Geom.xlsx");
       var bytes =
@@ -15,21 +15,22 @@ class ReadGeoExcel {
       var excel = Excel.decodeBytes(bytes);
 
       for (var table in excel.tables.keys) {
-        dbHelper.onCreate(table, 1);
+        await dbHelper.onCreate(table, 1);
         //print(table); //sheet Name
         // print(excel.tables[table].maxCols);
         // print(excel.tables[table].maxRows);
         for (var row in excel.tables[table].rows) {
-          insert(table, row);
+          await insert(table, row);
         }
       }
-    } catch (e) {
-      print(e);
-      return null;
+    } catch (error, stackTrace) {
+      print('Geo Excel loading failed: $error');
+      print(stackTrace);
+      rethrow;
     }
   }
 
-  void insert(table, grow) async {
+  Future<void> insert(table, grow) async {
     Map<String, dynamic> row = {
       DatabaseHelper.columnId: grow[0],
       DatabaseHelper.columnBez: grow[1].toString(),
